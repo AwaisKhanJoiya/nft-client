@@ -1,0 +1,25 @@
+.container {
+  width: 1000px;
+  margin: 5em auto;
+  text-align: center;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 0;
+}
+.wawes_container {
+  display: flex;
+}
+.wawes_container img {
+  margin: 0 10px;
+  width: 130px;
+}
+.row h2,
+.row p {
+  text-align: left;
+}
+.row p {
+  line-height: 28px;
+  font-size: 15px;
+}

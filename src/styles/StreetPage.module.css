@@ -1,0 +1,108 @@
+.container {
+  width: 1100px;
+  margin: auto;
+  padding: 0;
+}
+.logo {
+  font-size: 17px;
+}
+.heading {
+  font-size: 17px;
+  line-height: 30px;
+  font-weight: 500;
+}
+.row {
+  display: flex;
+}
+.subheading {
+  font-size: 14px;
+  font-weight: lighter;
+  color: lightgray;
+  margin-top: 5px;
+}
+.subheading span {
+  font-size: 11px;
+}
+.imgTag {
+  width: 95%;
+  height: 100%;
+}
+.location_icon {
+  position: relative;
+  margin-top: 2em;
+}
+.location {
+  position: absolute;
+  right: -30px;
+  top: -60px;
+}
+.musicImgContainer2 {
+  max-width: 900px;
+  margin: auto;
+  margin-top: 1em;
+}
+
+.musicImgContainer2 {
+  display: none;
+}
+
+.formHeader {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form {
+  padding: 1.2em 2em;
+  background-color: #333;
+  text-align: center;
+  margin: auto;
+  margin-top: 1.1em;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reedomField {
+  width: 100%;
+  padding: 0.4em 0.7em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #222;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 0.8em;
+}
+
+.btn {
+  margin-top: 10px;
+  padding: 0.7em 2em;
+  font-weight: 800;
+  color: #fff;
+  background-color: blue;
+  border: none;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+/* Small view ports(Mobiles Phones) */
+@media only screen and (max-width: 480px) {
+  .musicImgContainer {
+    display: none;
+  }
+
+  .musicImgContainer2 {
+    display: unset;
+  }
+
+  .imgTag {
+    width: 85%;
+  }
+}

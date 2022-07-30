@@ -1,0 +1,135 @@
+.topContainer,
+.container2 {
+  width: 1100px;
+  margin: auto;
+}
+
+.headingMain {
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+}
+
+.videoContainer {
+  width: 100%;
+}
+.videoContainer img {
+  width: 100%;
+  margin: 1em 0;
+}
+
+.introHeading,
+.introHeading2 {
+  color: rgb(236, 203, 13);
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.listItems {
+  padding: 1.4em 1em 0 1em;
+}
+
+.listItem {
+  color: white;
+  margin-bottom: 1em;
+  font-size: 1.3em;
+}
+
+.hr {
+  width: 100%;
+  margin: auto;
+  border: none;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+  height: 1px;
+  margin: 2em 0;
+}
+
+.introHeading2 {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+
+.roadmapIntro {
+  padding-left: 0.4em;
+}
+
+.roadmapDesc {
+  color: white;
+  font-size: 18 px;
+  font-weight: 400;
+  padding: 0.15em 0;
+}
+
+.checkpoints {
+  margin-left: 2.5em;
+  margin-top: 3em;
+  max-width: 700px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.data {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  /* margin-bottom: 2em; */
+  height: 3em;
+}
+
+.percentageKey {
+  color: rgb(236, 203, 13);
+  font-weight: 500;
+}
+
+.percentageKey,
+.valuePair {
+  display: inline-block;
+}
+
+.valuePair {
+  text-decoration: underline;
+  margin-left: 5em;
+}
+
+.valuePairLast {
+  text-decoration: underline;
+  margin-left: 4.5em;
+}
+
+.mapContent {
+  padding: 1em;
+  line-height: 2em;
+  color: rgb(202, 200, 200);
+}
+
+.flex1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.img3 {
+  margin-left: 20em;
+  color: #fff;
+  text-align: center;
+}
+.homeTopHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topLogo {
+  font-size: 2em;
+  font-weight: bold;
+}
+.socialIcons img {
+  cursor: pointer;
+  margin: 0 1em;
+}
