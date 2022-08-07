@@ -35,8 +35,8 @@ const Login = () => {
       const data = await res.json();
       if (res.status === 302) {
         setCookies("jwt", data.token, { path: "/", maxAge: 1800 });
-        setCookies("uid", data.user, { path: "/", maxAge: 1800 });
-        navigate("/");
+        setCookies("user", data.user, { path: "/", maxAge: 1800 });
+        window.location.href = "/";
       } else {
         throw data;
       }

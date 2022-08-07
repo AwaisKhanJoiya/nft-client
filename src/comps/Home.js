@@ -8,6 +8,7 @@ import discord from "../assests/discord.png";
 import twitter from "../assests/twitter.png";
 import instagram from "../assests/instagram.png";
 import home_img from "../assests/home_img.png";
+import dc from "../assests/dc.mp4";
 
 const Home = () => {
   return (
@@ -25,7 +26,8 @@ const Home = () => {
         </div>
         <div className={styles.headingMain}></div>
         <div className={styles.videoContainer}>
-          <img src={home_img} alt="Home Image" />
+          <video src={dc} loop muted autoPlay></video>
+          {/* <img src={home_img} alt="Home Image" /> */}
         </div>
         <div className={styles.introContainer}>
           <h1 className={styles.introHeading}>Welcome to sha tokens</h1>
@@ -33,7 +35,7 @@ const Home = () => {
             <ul className={styles.listItems}>
               <li className={styles.listItem}>
                 Sha tokens is a collection of 10,000 unique nft living on
-                ethereum blockchain. {"{<no fees, just ease/>}"}
+                ethereum blockchain.
               </li>
               <li className={styles.listItem}>
                 Sha token is a pixelated nft of Satoshi Nakamoto, the{" "}
