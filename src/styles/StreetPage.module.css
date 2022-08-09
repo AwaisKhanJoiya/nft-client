@@ -1,5 +1,5 @@
 .container {
-  max-width: 1100px;
+  width: 1100px;
   margin: auto;
   padding: 0;
 }
@@ -30,7 +30,6 @@
 .location_icon {
   position: relative;
   margin-top: 2em;
-  margin-right: 30px;
 }
 .location {
   position: absolute;
@@ -94,21 +93,16 @@
 }
 
 /* Small view ports(Mobiles Phones) */
-/* @media only screen and (max-width: 480px) {
-} */
-@media (max-width: 670px) {
-  .subheading {
-    width: 100% !important;
-  }
-  .row > .subheading {
-    width: auto !important;
-  }
-}
-@media (max-width: 435px) {
-  .container > div > .row {
-    flex-direction: column;
-  }
-  .location {
+@media only screen and (max-width: 480px) {
+  .musicImgContainer {
     display: none;
+  }
+
+  .musicImgContainer2 {
+    display: unset;
+  }
+
+  .imgTag {
+    width: 85%;
   }
 }

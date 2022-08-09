@@ -1,6 +1,6 @@
 .topContainer,
 .container2 {
-  max-width: 1100px;
+  width: 1100px;
   margin: auto;
 }
 
@@ -12,7 +12,7 @@
 .videoContainer {
   width: 100%;
 }
-.videoContainer video {
+.videoContainer img {
   width: 100%;
   margin: 1em 0;
 }
@@ -132,35 +132,4 @@
 .socialIcons img {
   cursor: pointer;
   margin: 0 1em;
-}
-@media (max-width: 1102px) {
-  .topContainer {
-    margin: auto 3em;
-  }
-}
-@media (max-width: 800px) {
-  .flex1,
-  .flex2 {
-    flex-direction: column;
-  }
-  .flex2 img {
-    width: 100%;
-  }
-}
-@media (max-width: 480px) {
-  .topLogo {
-    font-size: 1.5em;
-  }
-  .homeTopHeader > img {
-    width: 50px;
-  }
-}
-
-@media (max-width: 360px) {
-  .topLogo {
-    font-size: 1.2em;
-  }
-  .homeTopHeader > img {
-    width: 30px;
-  }
 }

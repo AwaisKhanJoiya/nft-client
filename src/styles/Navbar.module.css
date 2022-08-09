@@ -27,20 +27,3 @@
   background-color: #444;
   cursor: pointer;
 }
-@media (max-width: 931px) {
-  .navItem {
-    padding: 10px;
-  }
-}
-@media (max-width: 588px) {
-  .navItem {
-    font-size: 10px;
-    padding: 5px;
-    letter-spacing: 0;
-  }
-}
-@media (max-width: 460px) {
-  .navItem {
-    font-size: 8px;
-  }
-}

@@ -1,32 +1,29 @@
 import Navbar from "./Navbar";
 import styles from "../styles/Points.module.css";
-import styles2 from "../styles/Navbar.module.css";
-import ABI from "../abi/abi.json";
 import { useEffect, useState, useContext } from "react";
 // import { useCookies } from 'react-cookie'
 // import { useNavigate } from 'react-router-dom'
-// import { AuthContext } from "../contextApi/AuthContext";
-import { useNavigate, Link } from "react-router-dom";
+import { AuthContext } from "../contextApi/AuthContext";
+import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
 const Points = () => {
-  const [cookie, setCookie] = useCookies();
-
   const navigate = useNavigate();
   const [url, setUrl] = useState("");
-  const [user, setUser] = useState(cookie.user);
 
   // const [hide, setHide] = useState(true)
 
   const players = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   // const [cookies, setCookies] = useCookies();
 
-  // const { isAuth } = useContext(AuthContext);
+  const { isAuth } = useContext(AuthContext);
+  const [cookie, setCookie] = useCookies();
+
   const handleClick = async () => {
     try {
       const res = await fetch("http://localhost:8000/addUserLinks", {
         method: "POST",
-        body: JSON.stringify({ url, user: cookie.user?._id }),
+        body: JSON.stringify({ url, user: cookie.uid }),
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
@@ -39,41 +36,6 @@ const Points = () => {
     } catch (error) {
       // console.log("hillo")
       console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    addPoints();
-  }, []);
-
-  const addPoints = async () => {
-    const web3 = window.web3;
-    if (!web3.eth) {
-      alert("Please connect with matamask!");
-      navigate("/");
-    } else {
-      const accounts = await web3.eth.getAccounts();
-      const contract = new web3.eth.Contract(
-        ABI,
-        "0xeDF9A071bc9a5BA5959b186f3c50a1Bb8C2b22e2"
-      );
-
-      const balance = await contract.methods.balanceOf(accounts[0]).call();
-      const res = await fetch("http://localhost:8000/addNftPoints", {
-        method: "POST",
-        body: JSON.stringify({
-          id: cookie.user?._id,
-          points: parseInt(balance) * 10000,
-        }),
-        headers: { "Content-Type": "application/json" },
-      });
-      const data = await res.json();
-      if (res.status === 201) {
-        setUser(data.user);
-        // navigate("/");
-      } else {
-        alert("We are facing some problems. Points are not refreshed!");
-      }
     }
   };
   // const navigate = useNavigate()
@@ -108,22 +70,7 @@ const Points = () => {
 
   return (
     <>
-      <div className={styles2.navContainer}>
-        <div className={styles2.rightNavItems}>
-          <Link className="links" to="/">
-            <div className={styles2.navItem}>Home</div>
-          </Link>
-        </div>
-        <div className={styles.rightNavItems}>
-          <div className={styles.topBox}>
-            {user.firstName + " " + user.lastName}
-          </div>
-          <span className={styles.line}></span>
-          <div className={styles.topBox}>
-            {user.nftPoints + user.otherPoints}
-          </div>
-        </div>
-      </div>
+      <Navbar />
       {/* { !hide && */}
       <div className={styles.container}>
         <h1 className={styles.topHeader}>TOP 10</h1>
