@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "./comps/Home";
 import { AuthContext, AuthProvider } from "./contextApi/AuthContext";
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import { useCookies } from "react-cookie";
 import Signup from "./comps/authPapes/Signup";
 import Login from "./comps/authPapes/Login";
