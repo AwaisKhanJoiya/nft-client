@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "./comps/Home";
 import { AuthContext, AuthProvider } from "./contextApi/AuthContext";
-import { useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useCookies } from "react-cookie";
 import Signup from "./comps/authPapes/Signup";
 import Login from "./comps/authPapes/Login";
@@ -15,35 +15,39 @@ import Points from "./comps/Points";
 import Street from "./comps/Street";
 import WalletPage from "./comps/WalletPage";
 import { CookiesProvider } from "react-cookie";
+import Wallet from "./comps/Wallet";
+import Dapp from "./scripts/react/Dapp";
 
 function App() {
   const { isAuth, setIsAuth } = useContext(AuthContext);
 
   const [cookies, setCookies] = useCookies();
 
-  const checkUser = async () => {
-    try {
-      const res = await fetch("http://localhost:8000/checkuser", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token: cookies.jwt }),
-      });
-      const data = await res.json();
-      if (data.status === "bad auth") {
-        setIsAuth(false);
-      } else if (data.status === "good auth") {
-        setIsAuth(true);
-      }
-    } catch (error) {
-      console.log("catch");
-      setIsAuth(false);
-      console.log("error: ", error);
-    }
-  };
+  // const checkUser = async () => {
+  //   try {
+  //     const res = await fetch("http://localhost:8000/checkuser", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ token: cookies.jwt }),
+  //     });
+  //     console.log(cookies.jwt);
+  //     const data = await res.json();
+  //     console.log(data.status);
+  //     if (data.status === "bad auth") {
+  //       setIsAuth(false);
+  //     } else if (data.status === "good auth") {
+  //       setIsAuth(true);
+  //     }
+  //   } catch (error) {
+  //     console.log("catch");
+  //     setIsAuth(false);
+  //     console.log("error: ", error);
+  //   }
+  // };
 
-  useEffect(() => {
-    checkUser();
-  }, []);
+  // useEffect(() => {
+  //   checkUser();
+  // }, []);
 
   console.log(isAuth);
   return (
@@ -58,10 +62,12 @@ function App() {
               <Route path="/music" element={<Music />} />
               <Route
                 path="/score"
-                element={isAuth ? <Points /> : <Navigate to={"/login"} />}
+                element={cookies.jwt ? <Points /> : <Navigate to={"/login"} />}
               />
               <Route path="/street" element={<Street />} />
               <Route path="/wallet" element={<WalletPage />} />
+              <Route path="/wallet2" element={<Wallet />} />
+              <Route path="/mint" element={<Dapp />} />
             </Routes>
           </div>
         </AuthProvider>

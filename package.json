@@ -3,64 +3,39 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/preset-typescript": "^7.18.6",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@metamask/detect-provider": "^1.2.0",
     "@mui/icons-material": "^5.8.3",
     "@mui/material": "^5.8.1",
-    "@nft/abi": "file:../smart-contract/artifacts/contracts",
-    "@nft/conf": "file:../smart-contract/config",
-    "@nft/lib": "file:../smart-contract/lib",
-    "@nft/typechain": "file:../smart-contract/typechain",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^28.1.6",
     "@types/lodash": "^4.14.182",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "@types/node": "^18.6.5",
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
     "assert": "^2.0.0",
     "crypto": "^1.0.1",
     "crypto-browserify": "^3.12.0",
-    "encore": "^0.0.30-beta",
     "ethers": "^5.6.9",
     "http": "^0.0.1-security",
     "https-browserify": "^1.0.0",
-=======
->>>>>>> parent of eb52957 (added min ting dapp)
-=======
->>>>>>> parent of eb52957 (added min ting dapp)
     "imurmurhash": "^0.1.4",
-    "keccak256": "^1.0.6",
     "leven": "^4.0.0",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
-    "merkletreejs": "^0.2.32",
     "react": "^18.1.0",
     "react-cookie": "^4.1.1",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "4.0.3",
     "source-map": "^0.7.4",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "stream": "^0.0.2",
     "stream-http": "^3.2.0",
-    "typescript": "^4.7.4",
-=======
->>>>>>> parent of eb52957 (added min ting dapp)
-=======
->>>>>>> parent of eb52957 (added min ting dapp)
     "universal-cookie": "^4.0.4",
+    "url": "^0.11.0",
     "web-vitals": "^2.1.4",
+    "web3": "^1.7.5",
     "workbox-build": "^6.5.3"
   },
   "scripts": {
-    "dev-server": "encore dev-server",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -83,12 +58,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "customize-cra": "^1.0.0",
-    "react-app-rewired": "^2.2.1",
-    "sass": "^1.54.3",
-    "ts-loader": "^9.0.0",
-    "webpack": "^4.44.0"
   }
 }
