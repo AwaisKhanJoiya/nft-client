@@ -16,7 +16,6 @@ import Street from "./comps/Street";
 import WalletPage from "./comps/WalletPage";
 import { CookiesProvider } from "react-cookie";
 import Wallet from "./comps/Wallet";
-import Dapp from "./scripts/react/Dapp";
 
 function App() {
   const { isAuth, setIsAuth } = useContext(AuthContext);
@@ -67,7 +66,6 @@ function App() {
               <Route path="/street" element={<Street />} />
               <Route path="/wallet" element={<WalletPage />} />
               <Route path="/wallet2" element={<Wallet />} />
-              <Route path="/mint" element={<Dapp />} />
             </Routes>
           </div>
         </AuthProvider>
