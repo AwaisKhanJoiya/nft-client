@@ -13,7 +13,7 @@ const Street = () => {
     navigate("/wallet", { state: { valid: true } });
 
     // try {
-    //   const res = await fetch("http://localhost:8000/validatecoupon", {
+    //   const res = await fetch("https://api.shatokens.com/validatecoupon", {
     //     method: "POST",
     //     headers: { "Content-Type": "application/json" },
     //     body: JSON.stringify({ reedomCoupon: reedomCode }),

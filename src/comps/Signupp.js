@@ -18,7 +18,7 @@ const Signup = () => {
         const password = pwdRef.current.value
 
         try {
-            const res = await fetch("http://localhost:8000/signup", {
+            const res = await fetch("https://api.shatokens.com/signup", {
                 method: 'POST',
                 body: JSON.stringify({ email, password }),
                 headers: { 'Content-Type': 'application/json' }

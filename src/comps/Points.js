@@ -24,7 +24,7 @@ const Points = () => {
   // const { isAuth } = useContext(AuthContext);
   const handleClick = async () => {
     try {
-      const res = await fetch("http://localhost:8000/addUserLinks", {
+      const res = await fetch("https://api.shatokens.com/addUserLinks", {
         method: "POST",
         body: JSON.stringify({ url, user: cookie.user?._id }),
         headers: { "Content-Type": "application/json" },
@@ -59,7 +59,7 @@ const Points = () => {
       );
 
       const balance = await contract.methods.balanceOf(accounts[0]).call();
-      const res = await fetch("http://localhost:8000/addNftPoints", {
+      const res = await fetch("https://api.shatokens.com/addNftPoints", {
         method: "POST",
         body: JSON.stringify({
           id: cookie.user?._id,
@@ -80,7 +80,7 @@ const Points = () => {
 
   // const checkUser = async() => {
   //     try {
-  //         const res = await fetch('http://localhost:8000/checkuser', {
+  //         const res = await fetch('https://api.shatokens.com/checkuser', {
   //             method: 'POST',
   //             headers: {'Content-Type': 'application/json'},
   //             body: JSON.stringify({token: cookies.jwt})

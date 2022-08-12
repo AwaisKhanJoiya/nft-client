@@ -35,7 +35,7 @@ const Signup = () => {
     e.preventDefault();
     // console.log(fName, pwd, lName, email)
     try {
-      const res = await fetch("http://localhost:8000/signup", {
+      const res = await fetch("https://api.shatokens.com/signup", {
         method: "POST",
         body: JSON.stringify({
           email,

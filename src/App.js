@@ -24,7 +24,7 @@ function App() {
 
   // const checkUser = async () => {
   //   try {
-  //     const res = await fetch("http://localhost:8000/checkuser", {
+  //     const res = await fetch("https://api.shatokens.com/checkuser", {
   //       method: "POST",
   //       headers: { "Content-Type": "application/json" },
   //       body: JSON.stringify({ token: cookies.jwt }),

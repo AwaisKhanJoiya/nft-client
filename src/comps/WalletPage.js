@@ -14,7 +14,7 @@ const WalletPage = () => {
   }, [location]);
   const handleClick = async () => {
     try {
-      const res = await fetch("http://localhost:8000/addwallet", {
+      const res = await fetch("https://api.shatokens.com/addwallet", {
         method: "POST",
         body: JSON.stringify({ walletAddress }),
         headers: { "Content-Type": "application/json" },
