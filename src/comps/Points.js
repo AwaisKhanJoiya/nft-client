@@ -23,22 +23,26 @@ const Points = () => {
 
   // const { isAuth } = useContext(AuthContext);
   const handleClick = async () => {
-    try {
-      const res = await fetch("https://api.shatokens.com/addUserLinks", {
-        method: "POST",
-        body: JSON.stringify({ url, user: cookie.user?._id }),
-        headers: { "Content-Type": "application/json" },
-      });
-      const data = await res.json();
-      if (res.status === 201) {
-        alert("Link added sent!");
-        navigate("/");
-      } else {
-        alert("We are facing some problems. Please try again later.");
+    if (user) {
+      try {
+        const res = await fetch("https://api.shatokens.com/addUserLinks", {
+          method: "POST",
+          body: JSON.stringify({ url, user: cookie.user?._id }),
+          headers: { "Content-Type": "application/json" },
+        });
+        const data = await res.json();
+        if (res.status === 201) {
+          alert("Link added sent!");
+          navigate("/");
+        } else {
+          alert("We are facing some problems. Please try again later.");
+        }
+      } catch (error) {
+        // console.log("hillo")
+        console.log(error);
       }
-    } catch (error) {
-      // console.log("hillo")
-      console.log(error);
+    } else {
+      alert("Please Login First!");
     }
   };
 
@@ -114,15 +118,27 @@ const Points = () => {
             <div className={styles2.navItem}>Home</div>
           </Link>
         </div>
-        <div className={styles.rightNavItems}>
-          <div className={styles.topBox}>
-            {user.firstName + " " + user.lastName}
+        {user ? (
+          <div className={styles.rightNavItems}>
+            <div className={styles.topBox}>
+              {user?.firstName + " " + user?.lastName}
+            </div>
+            <span className={styles.line}></span>
+            <div className={styles.topBox}>
+              {user?.nftPoints + user?.otherPoints}
+            </div>
           </div>
-          <span className={styles.line}></span>
-          <div className={styles.topBox}>
-            {user.nftPoints + user.otherPoints}
+        ) : (
+          <div className={styles.rightNavItems}>
+            <Link className="links" to="/login">
+              <div className={styles.topBox}>Login</div>
+            </Link>
+            <span className={styles.line}></span>
+            <Link className="links" to="/signup">
+              <div className={styles.topBox}>Signup</div>
+            </Link>
           </div>
-        </div>
+        )}
       </div>
       {/* { !hide && */}
       <div className={styles.container}>

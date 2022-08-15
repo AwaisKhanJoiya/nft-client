@@ -3,12 +3,16 @@ import Navbar from "./Navbar";
 import road_map from "../assests/road_map.png";
 import music_icon from "../assests/music_icon.png";
 import wawes from "../assests/wawes.png";
+import img from "../assests/street_img.jpg";
 
 const Music = () => {
   return (
     <>
       <Navbar />
       <div className={styles.container}>
+        <div className={styles.imgContainer}>
+          <img src={img} alt="Home Image" />
+        </div>
         <div className={styles.row}>
           <h2 className={styles.heading}>
             Every shatokens nft holders gets music when the road map unlocks.

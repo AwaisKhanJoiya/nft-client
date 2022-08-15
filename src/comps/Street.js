@@ -4,38 +4,41 @@ import location from "../assests/location.png";
 import map_img from "../assests/map_img.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Scanner from "./Scanner";
+
 const Street = () => {
   const [reedomCode, setReedomCode] = useState("");
+  const [scanner, setScanner] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    navigate("/wallet", { state: { valid: true } });
+    e && e.preventDefault();
 
-    // try {
-    //   const res = await fetch("https://api.shatokens.com/validatecoupon", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({ reedomCoupon: reedomCode }),
-    //   });
+    try {
+      const res = await fetch("https://api.shatokens.com/validatecoupon", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reedomCoupon: reedomCode }),
+      });
 
-    //   if (res.status === 500) {
-    //     const data = await res.json();
-    //     alert(data.error);
-    //   } else {
-    //     const data = await res.json();
-    //     if (data) {
-    //       alert("yes");
-    //     }
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
+      if (res.status === 500) {
+        const data = await res.json();
+        alert(data.error);
+      } else {
+        const data = await res.json();
+        if (data) {
+          navigate("/wallet", { state: { valid: true } });
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <>
       <Navbar />
+      {scanner && <Scanner onHide={() => setScanner(false)} />}
       <div className={styles.container}>
         <div className={styles.musicImgContainer}>
           <div>
@@ -58,9 +61,8 @@ const Street = () => {
             <div>
               <h3 className={styles.heading}>There are two ways:</h3>
               <div className={styles.row} style={{ margin: "2em 0" }}>
-                <p className={styles.subheading}>
-                  Physical <span style={{ margin: "0 2rem" }}>-</span>
-                </p>
+                <p className={styles.subheading}>Physical</p>
+                <span style={{ margin: "0 2rem" }}>-</span>
                 <p className={styles.subheading}>
                   Find an SHA tokens QR that will be posted on the streets and
                   scan it.
@@ -71,9 +73,8 @@ const Street = () => {
                 </p>
               </div>
               <div className={styles.row} style={{ margin: "2em 0" }}>
-                <p className={styles.subheading}>
-                  Digital <span style={{ margin: "0 2rem" }}>-</span>
-                </p>
+                <p className={styles.subheading}>Digital</p>
+                <span style={{ margin: "0 2rem" }}>-</span>
                 <p className={styles.subheading}>
                   we will drop a link in sha tokens social media and you need to
                   travel to a certain street or geolocation to access the ticket
@@ -109,6 +110,16 @@ const Street = () => {
         <h2 className={styles.formHeader}>
           ENTER THE CODE HERE TO CLAIM YOUR NFT
         </h2>
+        <h2 className={styles.formHeader}>
+          OR{" "}
+          <button
+            className={styles.btn}
+            onClick={() => setScanner(true)}
+            style={{ padding: "0.3rem 1rem", marginLeft: "1rem" }}
+          >
+            SCAN QR
+          </button>
+        </h2>
 
         <form
           onSubmit={(e) => {
@@ -122,7 +133,9 @@ const Street = () => {
             onChange={(e) => setReedomCode(e.target.value)}
             type="text"
           />
-          <button className={styles.btn}>VERIFY</button>
+          <button type="submit" className={styles.btn}>
+            VERIFY
+          </button>
         </form>
       </div>
     </>

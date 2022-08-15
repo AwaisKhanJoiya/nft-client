@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    if (window.web3.eth) {
+    if (window.web3?.eth) {
       setIsConnected(true);
     } else {
       setIsConnected(false);
@@ -36,7 +36,7 @@ const Navbar = () => {
       //     console.log(error.message);
       //   });
     } else {
-      console.log("Need to install MetaMask");
+      alert("Need to install MetaMask");
       // setErrorMessage('Please install MetaMask browser extension to interact');
     }
   };
@@ -44,11 +44,11 @@ const Navbar = () => {
   return (
     <div className={styles.navContainer}>
       <div className={styles.rightNavItems}>
-        <Link className="links" to="/">
+        {/* <Link className="links" to="/">
           <div className={styles.navItem}>Home</div>
-        </Link>
+        </Link> */}
         <Link className="links" to="/street">
-          <div className={styles.navItem}>Street NFT</div>
+          <div className={styles.navItem}>BUY NFT</div>
         </Link>
         <Link className="links" to="/music">
           <div className={styles.navItem}>MUSIC NFT</div>
@@ -58,7 +58,9 @@ const Navbar = () => {
         <Link to="/score" className="links">
           <div className={styles.navItem}>SHA POINTS</div>
         </Link>
-        <div className={styles.navItem}>STREET SHA TOKENS</div>
+        <a href="https://mint.shatokens.com" className="links">
+          <div className={styles.navItem}>STREET SHA TOKENS</div>
+        </a>
         {!isConnected && (
           <>
             <div
@@ -66,7 +68,7 @@ const Navbar = () => {
               style={{ color: "yellow", fontWeight: "900", cursor: "pointer" }}
               className={styles.navItem}
             >
-              Connect to Wallet
+              Connect Wallet
             </div>
           </>
         )}

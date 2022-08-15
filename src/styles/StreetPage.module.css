@@ -15,10 +15,11 @@
   display: flex;
 }
 .subheading {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: lighter;
   color: lightgray;
   margin-top: 5px;
+  min-width: 8%;
 }
 .subheading span {
   font-size: 11px;

@@ -6,16 +6,18 @@ import {
 } from "react-router-dom";
 import Home from "./comps/Home";
 import { AuthContext, AuthProvider } from "./contextApi/AuthContext";
-import { useEffect, useState, useContext } from "react";
+import { useContext, lazy, Suspense } from "react";
 import { useCookies } from "react-cookie";
-import Signup from "./comps/authPapes/Signup";
-import Login from "./comps/authPapes/Login";
-import Music from "./comps/Music";
-import Points from "./comps/Points";
-import Street from "./comps/Street";
-import WalletPage from "./comps/WalletPage";
 import { CookiesProvider } from "react-cookie";
-import Wallet from "./comps/Wallet";
+import Footer from "./comps/Footer";
+
+const Signup = lazy(() => import("./comps/authPapes/Signup"));
+const Login = lazy(() => import("./comps/authPapes/Login"));
+const Music = lazy(() => import("./comps/Music"));
+const Points = lazy(() => import("./comps/Points"));
+const Street = lazy(() => import("./comps/Street"));
+const WalletPage = lazy(() => import("./comps/WalletPage"));
+const Wallet = lazy(() => import("./comps/Wallet"));
 
 function App() {
   const { isAuth, setIsAuth } = useContext(AuthContext);
@@ -52,23 +54,23 @@ function App() {
   return (
     <CookiesProvider>
       <Router>
-        <AuthProvider>
-          <div className="App">
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/" element={<Home />} />
-              <Route path="/music" element={<Music />} />
-              <Route
-                path="/score"
-                element={cookies.jwt ? <Points /> : <Navigate to={"/login"} />}
-              />
-              <Route path="/street" element={<Street />} />
-              <Route path="/wallet" element={<WalletPage />} />
-              <Route path="/wallet2" element={<Wallet />} />
-            </Routes>
-          </div>
-        </AuthProvider>
+        <Suspense fallback={"Loading..."}>
+          <AuthProvider>
+            <div className="App">
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/music" element={<Music />} />
+                <Route path="/score" element={<Points />} />
+                <Route path="/street" element={<Street />} />
+                <Route path="/wallet" element={<WalletPage />} />
+                <Route path="/wallet2" element={<Wallet />} />
+              </Routes>
+              <Footer />
+            </div>
+          </AuthProvider>
+        </Suspense>
       </Router>
     </CookiesProvider>
   );
