@@ -44,7 +44,7 @@ const Scanner = ({ onHide }) => {
         {!loading ? (
           <QrReader
             delay={300}
-            facingmode="environment"
+            facingMode="rear"
             className={styles.scanner}
             onError={handleError}
             onScan={handleScan}
