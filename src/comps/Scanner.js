@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import styles from "../styles/Scanner.module.css";
 import { useNavigate } from "react-router-dom";
-import { QrReader } from "react-qr-reader";
+import QrReader from "react-qr-scanner";
 
 const Scanner = ({ onHide }) => {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
-  const handleScan = async (data, error) => {
-    if (!!error) {
-      console.log(error);
-    }
-    if (!!data) {
+  const handleScan = async (data) => {
+    if (data !== null) {
       setLoading(true);
       try {
         const res = await fetch("https://api.shatokens.com/validatecoupon", {
@@ -37,15 +34,20 @@ const Scanner = ({ onHide }) => {
     }
   };
 
+  const handleError = (err) => {
+    console.error(err);
+  };
+
   return (
     <div className={styles.mainContainer} onClick={onHide}>
       <div className={styles.scannerContainer}>
         {!loading ? (
           <QrReader
-            //   delay={state.delay}
-            // constraints={{ facingMode: "main" }}
+            delay={300}
+            facingmode="environment"
             className={styles.scanner}
-            onResult={handleScan}
+            onError={handleError}
+            onScan={handleScan}
           />
         ) : (
           <p style={{ textAlign: "center" }}>Checking, Please wait...</p>
