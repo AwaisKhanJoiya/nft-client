@@ -43,25 +43,23 @@
   }
 }
 @media (max-width: 609px) {
-  .container img {
-    margin: 0 4px;
-    height: 160px;
-  }
-}
-@media (max-width: 414px) {
-  h2 {
-    font-size: 1em;
-  }
-  p {
-    font-size: 7px;
-    /* line-height: 2px; */
+  .container {
+    margin: 0;
   }
   .container .row {
     flex-direction: column;
     margin: 2rem 0;
   }
-  .container img {
-    margin: 0 4px;
+  .roadImg {
+    display: none;
+  }
+  .musicImg {
+    width: 150px;
+    margin: 2em auto;
     height: auto;
+  }
+  .wawes_container {
+    justify-content: center;
+    margin: 2em 0;
   }
 }

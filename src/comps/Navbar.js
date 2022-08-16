@@ -3,9 +3,11 @@ import styles from "../styles/Navbar.module.css";
 import { Link } from "react-router-dom";
 import Web3 from "web3";
 import { AuthContext } from "../contextApi/AuthContext";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Navbar = () => {
   const [isConnected, setIsConnected] = useState(false);
+  const [isActive, setIsActive] = useState(null);
 
   useEffect(() => {
     if (window.web3?.eth) {
@@ -42,38 +44,88 @@ const Navbar = () => {
   };
   const { isAuth } = useContext(AuthContext);
   return (
-    <div className={styles.navContainer}>
-      <div className={styles.rightNavItems}>
-        {/* <Link className="links" to="/">
+    <>
+      <div className={styles.navContainer}>
+        <div className={styles.rightNavItems}>
+          {/* <Link className="links" to="/">
           <div className={styles.navItem}>Home</div>
         </Link> */}
-        <Link className="links" to="/street">
-          <div className={styles.navItem}>BUY NFT</div>
-        </Link>
-        <Link className="links" to="/music">
-          <div className={styles.navItem}>MUSIC NFT</div>
-        </Link>
+          <a href="https://mint.shatokens.com" className="links">
+            <div className={styles.navItem}>BUY NFT</div>
+          </a>
+          <Link className="links" to="/music">
+            <div className={styles.navItem}>MUSIC NFT</div>
+          </Link>
+        </div>
+        <div className={styles.rightNavItems}>
+          <Link to="/score" className="links">
+            <div className={styles.navItem}>SHA POINTS</div>
+          </Link>
+          <Link className="links" to="/street">
+            <div className={styles.navItem}>STREET SHA TOKENS</div>
+          </Link>
+          {!isConnected && (
+            <>
+              <div
+                onClick={connectWalletHandler}
+                style={{
+                  color: "yellow",
+                  fontWeight: "900",
+                  cursor: "pointer",
+                }}
+                className={styles.navItem}
+              >
+                Connect Wallet
+              </div>
+            </>
+          )}
+        </div>
       </div>
-      <div className={styles.rightNavItems}>
-        <Link to="/score" className="links">
-          <div className={styles.navItem}>SHA POINTS</div>
-        </Link>
-        <a href="https://mint.shatokens.com" className="links">
-          <div className={styles.navItem}>STREET SHA TOKENS</div>
-        </a>
-        {!isConnected && (
-          <>
-            <div
-              onClick={connectWalletHandler}
-              style={{ color: "yellow", fontWeight: "900", cursor: "pointer" }}
-              className={styles.navItem}
-            >
-              Connect Wallet
-            </div>
-          </>
-        )}
+      <div className={styles.mobNav}>
+        <div className={styles.mobNavContainer}>
+          <div className={styles.rightNavItems}>
+            <Link to="/" className="links">
+              <div className={styles.topLogo}>SHA TOKENS</div>
+            </Link>
+          </div>
+          <div
+            onClick={() => setIsActive(!isActive)}
+            className={styles.rightNavItems}
+          >
+            <MenuIcon fontSize="large" />
+          </div>
+        </div>
+        <div className={`${styles.mobMenu} ${isActive && styles.active}`}>
+          <a href="https://mint.shatokens.com" className="links">
+            <div className={styles.navItem}>BUY NFT</div>
+          </a>
+          <Link className="links" to="/music">
+            <div className={styles.navItem}>MUSIC NFT</div>
+          </Link>
+          <Link to="/score" className="links">
+            <div className={styles.navItem}>SHA POINTS</div>
+          </Link>
+          <Link className="links" to="/street">
+            <div className={styles.navItem}>STREET SHA TOKENS</div>
+          </Link>
+          {!isConnected && (
+            <>
+              <div
+                onClick={connectWalletHandler}
+                style={{
+                  color: "yellow",
+                  fontWeight: "900",
+                  cursor: "pointer",
+                }}
+                className={styles.navItem}
+              >
+                Connect Wallet
+              </div>
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

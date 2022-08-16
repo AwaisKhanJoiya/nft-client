@@ -17,10 +17,10 @@ const Music = () => {
           <h2 className={styles.heading}>
             Every shatokens nft holders gets music when the road map unlocks.
           </h2>
-          <img src={road_map} alt="Road Map" />
+          <img className={styles.roadImg} src={road_map} alt="Road Map" />
         </div>
         <div className={styles.row}>
-          <img src={music_icon} alt="Road Map" />
+          <img className={styles.musicImg} src={music_icon} alt="Music" />
           <h2
             className={styles.heading}
             style={{ marginLeft: "30px", textAlign: "right" }}
@@ -46,8 +46,8 @@ const Music = () => {
             </p>
           </div>
           <div className={styles.wawes_container}>
-            <img src={wawes} alt="Road Map" />
-            <img src={wawes} alt="Road Map" />
+            <img className={styles.musicImg} src={wawes} alt="Road Map" />
+            <img className={styles.musicImg} src={wawes} alt="Road Map" />
           </div>
         </div>
       </div>
