@@ -19,9 +19,15 @@ const Home = () => {
           <div className={styles.topLogo}>SHA TOKENS</div>
           <img src={dollar_sign} alt="Dollar Sign" />
           <div className={styles.socialIcons}>
-            <img src={discord} alt="Discord" />
-            <img src={twitter} alt="Twitter" />
-            <img src={instagram} alt="instagram" />
+            <a href="https://discord.gg/xJv4wMBYyN">
+              <img src={discord} alt="Discord" />
+            </a>
+            <a href="https://twitter.com/shatokens?t=wcQSA1REMkRRvTMrmyR0SA&s=09">
+              <img src={twitter} alt="Twitter" />
+            </a>
+            <a href="https://instagram.com/shatokens?igshid=YmMyMTA2M2Y=">
+              <img src={instagram} alt="instagram" />
+            </a>
           </div>
         </div>
         <div className={styles.headingMain}></div>
